@@ -10,7 +10,7 @@ type Estado = 'idle' | 'enviando' | 'ok' | 'error';
   standalone: true,
   imports: [Icon, Reveal],
   template: `
-    <section id="contacto" class="py-16">
+    <section id="contacto" class="py-20">
       <div appReveal class="glass rounded-[2rem] p-8 sm:p-12 grid gap-10 md:grid-cols-[2fr_3fr]">
         <!-- Datos de contacto -->
         <div>
@@ -35,6 +35,8 @@ type Estado = 'idle' | 'enviando' | 'ok' | 'error';
               {{ p.ciudad }}
             </li>
           </ul>
+
+          <p class="mt-8 text-sm text-white/60">Referencias de mis prácticas disponibles bajo petición.</p>
         </div>
 
         <!-- Formulario -->
@@ -45,7 +47,7 @@ type Estado = 'idle' | 'enviando' | 'ok' | 'error';
               <h3 class="font-display text-xl font-medium">Mensaje enviado</h3>
               <p class="text-white/70">Gracias por escribirme. Te responderé en cuanto pueda.</p>
               <button type="button" (click)="estado.set('idle')"
-                      class="mx-auto mt-2 rounded-full border border-white/25 px-5 py-2 text-sm hover:bg-white/10 transition-colors">
+                      class="mx-auto mt-2 rounded-xl border border-white/25 px-5 py-2 text-sm hover:bg-white/10 transition-colors">
                 Enviar otro mensaje
               </button>
             </div>
@@ -73,14 +75,14 @@ type Estado = 'idle' | 'enviando' | 'ok' | 'error';
                      (change)="trampa.set($any($event.target).checked)">
 
               @if (estado() === 'error') {
-                <p class="flex items-start gap-2 rounded-xl bg-coral/20 border border-coral/40 px-4 py-3 text-sm" role="alert">
-                  <span class="shrink-0 text-coral"><app-icon name="circle-alert" [size]="18" /></span>
+                <p class="flex items-start gap-2 rounded-xl bg-iris/20 border border-iris/40 px-4 py-3 text-sm" role="alert">
+                  <span class="shrink-0 text-iris"><app-icon name="circle-alert" [size]="18" /></span>
                   {{ error() }}
                 </p>
               }
 
               <button type="submit" [disabled]="!valido() || estado() === 'enviando'"
-                      class="inline-flex items-center gap-2 rounded-full bg-white text-[#0b0b1e] font-medium px-6 py-3
+                      class="inline-flex items-center gap-2 rounded-xl bg-white text-[#0b0b1e] font-medium px-6 py-3
                              transition-colors hover:bg-aqua disabled:opacity-50 disabled:hover:bg-white disabled:cursor-not-allowed">
                 @if (estado() === 'enviando') {
                   <span class="animate-spin motion-reduce:animate-none"><app-icon name="loader-circle" [size]="18" /></span>

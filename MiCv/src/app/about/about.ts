@@ -8,8 +8,8 @@ import { PERFIL } from '../data/portfolio.data';
   standalone: true,
   imports: [Icon, Reveal],
   template: `
-    <section id="sobre-mi" class="py-16">
-      <h2 class="font-display text-3xl font-bold mb-6">Sobre mí</h2>
+    <section id="sobre-mi" class="py-20">
+      <h2 class="section-title">Sobre mí</h2>
 
       <div appReveal class="glass rounded-3xl p-8 grid gap-8 md:grid-cols-[3fr_2fr]">
         <p class="text-white/80 leading-relaxed text-lg max-w-prose">{{ p.resumen }}</p>
@@ -25,11 +25,11 @@ import { PERFIL } from '../data/portfolio.data';
         </ul>
       </div>
 
-      <div class="mt-5 grid gap-5 md:grid-cols-3">
+      <div class="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         @for (f of p.fortalezas; track f.titulo; let i = $index) {
           <article appReveal [revealDelay]="i * 120"
-                   class="glass rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1">
-            <span class="grid place-items-center size-11 rounded-2xl bg-gradient-to-br from-violet/60 to-coral/60 border border-white/20">
+                   class="glass rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1">
+            <span class="grid place-items-center size-11 rounded-2xl bg-aqua/10 text-aqua border border-white/20">
               <app-icon [name]="f.icono" [size]="22" />
             </span>
             <h3 class="font-display text-lg font-medium mt-4">{{ f.titulo }}</h3>

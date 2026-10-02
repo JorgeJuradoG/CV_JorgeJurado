@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <div aria-hidden="true">
       <div class="orb bg-violet w-[40rem] h-[40rem] -top-40 -left-40"></div>
-      <div class="orb bg-coral w-[30rem] h-[30rem] top-1/3 -right-32" style="animation-delay:-8s"></div>
+      <div class="orb bg-iris w-[30rem] h-[30rem] top-1/3 -right-32" style="animation-delay:-8s"></div>
       <div class="orb bg-aqua w-[34rem] h-[34rem] -bottom-40 left-1/4" style="animation-delay:-14s"></div>
     </div>
   `,
