@@ -86,18 +86,18 @@ export const EXPERIENCIA = [
 // Sustituye el segundo por un proyecto real y añade los enlaces a los repositorios
 export const PROYECTOS = [
   {
-    nombre: 'Mock de aplicación móvil',
+    nombre: 'Proyecto Acogida de alumnos',
     contexto: 'Prácticas formativas · 12 semanas · ZAITEC SOLUTIONS',
     descripcion:
-      'Prototipo funcional de aplicación móvil desarrollado con Angular en un entorno de trabajo distribuido (marzo–junio 2025). Incluye gestión de usuarios con Firebase Authentication y almacenamiento con sincronización de datos mediante Firebase Realtime Database. El código se gestionó con Git y GitHub y se entregó de forma iterativa con enfoque ágil, coordinado por un DevOps y Scrum Master.',
-    tags: ['Angular', 'JavaScript', 'Firebase Authentication', 'Firebase Realtime Database', 'Scrum'],
+      'Prototipo funcional de aplicación móvil desarrollado con Angular en un entorno de trabajo distribuido (marzo–junio 2025). Incluye gestión de usuarios con Firebase Authentication y almacenamiento con sincronización de datos mediante Firebase Realtime Database. El código se gestionó con Git y GitHub y se entregó de forma iterativa con enfoque ágil, coordinado por un DevOps y Scrum Master. Se trata de un gestor de alumnos para profesores donde se le hacía un seguimiento a estos alumnos y se podían hacer evaluaciones, todo conectado con una base de datos creada en Firebase, que se actualizaba en tiempo real.',
+    tags: ['Angular', 'JavaScript', 'Firebase Authentication', 'Firebase Realtime Database', 'Scrum', 'Bootstrap', 'Git', 'GitHub'],
     repo: '', demo: '',
   },
   {
-    nombre: 'Tu proyecto del ciclo',
-    contexto: '',
-    descripcion: 'Añade aquí un proyecto de DAW con una descripción corta y el enlace a su repositorio.',
-    tags: ['Angular', 'TypeScript'], repo: 'https://github.com/JorgeJuradoG', demo: '',
+    nombre: 'Mi CV',
+    contexto: 'Ejemplo de proyecto personal, donde desarrollo mi propio CV en formato web',
+    descripcion: 'Aquí puedes ver mi CV en formato web, desarrollado con Angular, TypeScript y Tailwind CSS.',
+    tags: ['Angular', 'TypeScript', 'Tailwind CSS'], repo: 'https://github.com/JorgeJuradoG', demo: '',
   },
 ];
 
