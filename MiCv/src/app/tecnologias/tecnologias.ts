@@ -13,19 +13,23 @@ import { TECNOLOGIAS } from '../data/portfolio.data';
 
       <div class="grid gap-5 sm:grid-cols-2">
         @for (g of grupos; track g.titulo; let i = $index) {
-          <article appReveal [revealDelay]="(i % 2) * 120" class="glass rounded-2xl p-6" [class]="ocupaFila(i) ? 'sm:col-span-2' : ''">
-            <header class="flex items-center gap-3 mb-5">
-              <span class="grid place-items-center size-10 rounded-xl bg-white/10 border border-white/15 text-aqua">
+          <article appReveal [revealDelay]="(i % 2) * 120"
+                   class="glass flex flex-col rounded-2xl p-6 transition duration-300 hover:border-aqua/40"
+                   [class]="ocupaFila(i) ? 'sm:col-span-2' : ''">
+            <header class="mb-5 flex items-center gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded-xl border border-white/15 bg-white/10 text-aqua">
                 <app-icon [name]="g.icono" [size]="20" />
               </span>
               <h3 class="font-display text-xl font-medium">{{ g.titulo }}</h3>
+              <span class="ml-auto rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-xs text-white/60">
+                {{ g.items.length }}
+              </span>
             </header>
 
-            <ul class="flex flex-wrap gap-2">
+            <ul class="flex grow flex-wrap content-start gap-2" [attr.aria-label]="'Tecnologías de ' + g.titulo">
               @for (t of g.items; track t) {
-                <li class="chip rounded-lg bg-white/10 border border-white/15 px-3.5 py-1.5 text-sm
-                           transition duration-200 hover:-translate-y-0.5 hover:border-aqua/60 hover:bg-white/15
-                           ">{{ t }}</li>
+                <li class="chip rounded-lg border border-white/15 bg-white/10 px-3.5 py-1.5 text-sm
+                           transition duration-200 hover:-translate-y-0.5 hover:border-aqua/60 hover:bg-white/15">{{ t }}</li>
               }
             </ul>
 

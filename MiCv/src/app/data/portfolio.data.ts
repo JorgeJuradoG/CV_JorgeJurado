@@ -38,6 +38,32 @@ export const TECNOLOGIAS = [
   { titulo: 'Metodologías', icono: 'refresh-cw', items: ['Scrum', 'Desarrollo ágil', 'Control de versiones', 'Trabajo colaborativo'],
     aval: 'Entregas iterativas con enfoque ágil, con un Scrum Master como coordinador.' },
   { titulo: 'Ofimática', icono: 'file-text', items: ['Dominio de la ofimática', 'Microsoft Office'], aval: '' },
+  {
+  titulo: 'Frontend (React)',
+  icono: 'code', // usa un nombre que exista en tu componente Icon
+  items: [
+    'React', 'Vite', 'Tailwind CSS', 'React Router', 'Axios',
+    'FullCalendar', 'Socket.IO client',
+  ],
+},
+{
+  titulo: 'Backend y datos',
+  icono: 'code', // idem
+  items: [
+    'Node.js', 'Express', 'MongoDB (Atlas)', 'Mongoose', 'Socket.IO',
+    'JWT', 'bcrypt', 'Nodemailer', 'node-cron', 'Luxon',
+  ],
+  aval: 'Aplicado en Citas: multi-tenant, reservas en tiempo real sin dobles citas y sesiones revocables.',
+},
+{
+  titulo: 'Calidad y despliegue',
+  icono: 'award', // el que ya usas para «aval» sirve
+  items: [
+    'Vitest', 'Supertest', 'mongodb-memory-server', 'Git y GitHub',
+    'GitHub Actions (CI)', 'Render',
+  ],
+  aval: 'Más de 150 tests automáticos en cada push, con base de datos en memoria.',
+},
 ];
 
 export const EXPERIENCIA = [
@@ -99,6 +125,20 @@ export const PROYECTOS = [
     descripcion: 'Aquí puedes ver mi CV en formato web, desarrollado con Angular, TypeScript y Tailwind CSS.',
     tags: ['Angular', 'TypeScript', 'Tailwind CSS'], repo: 'https://github.com/JorgeJuradoG', demo: '',
   },
+  
+  {
+  nombre: 'Citas · reservas para peluquerías',
+  contexto: 'Proyecto personal · Full stack',
+  descripcion:
+    'Plataforma multi-peluquería de reservas en tiempo real: cada negocio crea su espacio con su propia marca, gestiona equipo, servicios y horarios, y sus clientes reservan sin dobles citas (índice único en MongoDB y Socket.IO). Sesiones revocables, enlaces de un solo uso, panel de estadísticas y más de 150 tests con CI en GitHub Actions.',
+  tags: [
+    'React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express',
+    'MongoDB', 'Socket.IO', 'JWT', 'Vitest', 'GitHub Actions',
+  ],
+  repo: 'https://github.com/JorgeJuradoG/peluqueria-citas',
+  demo: 'https://peluqueria-citas-hgeh.onrender.com/s/demo',
+  
+},
 ];
 
 export const FORMACION = [

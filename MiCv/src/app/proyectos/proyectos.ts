@@ -15,12 +15,17 @@ import { PROYECTOS } from '../data/portfolio.data';
         @for (p of proyectos; track p.nombre; let i = $index) {
           <article appReveal [revealDelay]="(i % 2) * 120"
                    class="group glass rounded-3xl p-3 flex flex-col transition-transform duration-300 hover:-translate-y-1">
-            <!-- Zona visual: sustitúyela por una captura cuando tengas una -->
+            <!-- Captura si existe; si no, degradado con icono -->
             <div class="relative h-36 rounded-2xl overflow-hidden bg-gradient-to-br border border-white/15"
                  [class]="gradientes[i % gradientes.length]">
-              <span class="absolute inset-0 grid place-items-center text-white/80 transition-transform duration-500 group-hover:scale-110">
-                <app-icon name="code" [size]="44" />
-              </span>
+              @if (p.imagen) {
+                <img [src]="p.imagen" [alt]="'Captura de ' + p.nombre" loading="lazy"
+                     class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              } @else {
+                <span class="absolute inset-0 grid place-items-center text-white/80 transition-transform duration-500 group-hover:scale-110">
+                  <app-icon name="code" [size]="44" />
+                </span>
+              }
             </div>
 
             <div class="p-4 pt-5 flex flex-col grow">
