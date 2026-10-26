@@ -15,18 +15,24 @@ import { PROYECTOS } from '../data/portfolio.data';
         @for (p of proyectos; track p.nombre; let i = $index) {
           <article appReveal [revealDelay]="(i % 2) * 120"
                    class="group glass rounded-3xl p-3 flex flex-col transition-transform duration-300 hover:-translate-y-1">
-            <!-- Degradado con icono -->
-            <div class="relative h-36 rounded-2xl overflow-hidden bg-gradient-to-br border border-white/15"
+            <!-- Captura si existe; si no, degradado con icono -->
+            <div class="relative h-44 rounded-2xl overflow-hidden bg-gradient-to-br border border-white/15"
                  [class]="gradientes[i % gradientes.length]">
-              <span class="absolute inset-0 grid place-items-center text-white/80 transition-transform duration-500 group-hover:scale-110">
-                <app-icon name="code" [size]="44" />
-              </span>
+              @if (p.imagen) {
+                <img [src]="p.imagen" [alt]="'Captura de ' + p.nombre"
+                     width="1200" height="675" loading="lazy" decoding="async"
+                     class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              } @else {
+                <span class="absolute inset-0 grid place-items-center text-white/80 transition-transform duration-500 group-hover:scale-110">
+                  <app-icon name="code" [size]="44" />
+                </span>
+              }
             </div>
 
             <div class="p-4 pt-5 flex flex-col grow">
               <h3 class="font-display text-xl font-medium">{{ p.nombre }}</h3>
               @if (p.contexto) { <p class="mt-1 text-sm text-aqua/90">{{ p.contexto }}</p> }
-              <p class="mt-2 text-white/75 grow">{{ p.descripcion }}</p>
+              <p class="mt-2 text-white/80 grow">{{ p.descripcion }}</p>
 
               <ul class="mt-4 flex flex-wrap gap-2">
                 @for (t of p.tags; track t) {
@@ -48,9 +54,13 @@ import { PROYECTOS } from '../data/portfolio.data';
                   </a>
                 }
                 @if (!p.repo && !p.demo) {
-                  <span class="text-sm text-white/55">Proyecto de empresa: el código no es público.</span>
+                  <span class="text-sm text-white/60">Proyecto de empresa: el código no es público.</span>
                 }
               </div>
+
+ 
+              
+          
             </div>
           </article>
         }

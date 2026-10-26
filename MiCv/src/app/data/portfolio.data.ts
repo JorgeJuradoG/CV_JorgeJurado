@@ -29,41 +29,18 @@ export const PERFIL = {
 
 // "aval" = lo que destaca la carta de recomendación sobre ese grupo (vacío si no aplica)
 export const TECNOLOGIAS = [
-  { titulo: 'Frontend', icono: 'monitor', items: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind'],
+  { titulo: 'Frontend', icono: 'monitor',
+    items: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind', 'React', 'Vite'],
     aval: 'Mi coordinador destacó mi excelente comprensión de Angular y de JavaScript.' },
-  { titulo: 'Backend y bases de datos', icono: 'database', items: ['Firebase Authentication', 'Firebase Realtime Database'],
+  { titulo: 'Backend y bases de datos', icono: 'database',
+    items: ['Firebase Authentication', 'Firebase Realtime Database', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'Socket.IO', 'JWT'],
     aval: 'Integré con solvencia autenticación y base de datos en tiempo real en el proyecto de prácticas.' },
-  { titulo: 'Herramientas', icono: 'wrench', items: ['Git', 'GitHub', 'Visual Studio Code', 'Notion'],
+  { titulo: 'Herramientas', icono: 'wrench',
+    items: ['Git', 'GitHub', 'GitHub Actions', 'Visual Studio Code', 'Vitest', 'Supertest', 'Notion'],
     aval: 'Trabajé de forma continua con GitHub como plataforma de control de versiones.' },
   { titulo: 'Metodologías', icono: 'refresh-cw', items: ['Scrum', 'Desarrollo ágil', 'Control de versiones', 'Trabajo colaborativo'],
     aval: 'Entregas iterativas con enfoque ágil, con un Scrum Master como coordinador.' },
   { titulo: 'Ofimática', icono: 'file-text', items: ['Dominio de la ofimática', 'Microsoft Office'], aval: '' },
-  {
-  titulo: 'Frontend (React)',
-  icono: 'code', // usa un nombre que exista en tu componente Icon
-  items: [
-    'React', 'Vite', 'Tailwind CSS', 'React Router', 'Axios',
-    'FullCalendar', 'Socket.IO client',
-  ],
-},
-{
-  titulo: 'Backend y datos',
-  icono: 'code', // idem
-  items: [
-    'Node.js', 'Express', 'MongoDB (Atlas)', 'Mongoose', 'Socket.IO',
-    'JWT', 'bcrypt', 'Nodemailer', 'node-cron', 'Luxon',
-  ],
-  aval: 'Aplicado en Citas: multi-tenant, reservas en tiempo real sin dobles citas y sesiones revocables.',
-},
-{
-  titulo: 'Calidad y despliegue',
-  icono: 'award', // el que ya usas para «aval» sirve
-  items: [
-    'Vitest', 'Supertest', 'mongodb-memory-server', 'Git y GitHub',
-    'GitHub Actions (CI)', 'Render',
-  ],
-  aval: 'Más de 150 tests automáticos en cada push, con base de datos en memoria.',
-},
 ];
 
 export const EXPERIENCIA = [
@@ -109,8 +86,21 @@ export const EXPERIENCIA = [
   },
 ];
 
-// Sustituye el segundo por un proyecto real y añade los enlaces a los repositorios
 export const PROYECTOS = [
+  {
+    nombre: 'Citas · reservas para peluquerías',
+    contexto: 'Proyecto personal · Full stack',
+    descripcion:
+      'Plataforma multi-peluquería de reservas en tiempo real: cada negocio crea su espacio con su propia marca, gestiona equipo, servicios y horarios, y sus clientes reservan sin dobles citas (índice único en MongoDB y Socket.IO). Sesiones revocables, enlaces de un solo uso, panel de estadísticas y más de 150 tests con CI en GitHub Actions.',
+    tags: [
+      'React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express',
+      'MongoDB', 'Socket.IO', 'JWT', 'Vitest', 'GitHub Actions',
+    ],
+    repo: 'https://github.com/JorgeJuradoG/peluqueria-citas',
+    demo: 'https://peluqueria-citas-hgeh.onrender.com/s/demo',
+    imagen: '/img/citas.png',
+    nota: 'La demo está en un plan gratuito: la primera visita puede tardar unos segundos en despertar.',
+  },
   {
     nombre: 'Proyecto Acogida de alumnos',
     contexto: 'Prácticas formativas · 12 semanas · ZAITEC SOLUTIONS',
@@ -125,20 +115,6 @@ export const PROYECTOS = [
     descripcion: 'Aquí puedes ver mi CV en formato web, desarrollado con Angular, TypeScript y Tailwind CSS.',
     tags: ['Angular', 'TypeScript', 'Tailwind CSS'], repo: 'https://github.com/JorgeJuradoG', demo: '',
   },
-  
-  {
-  nombre: 'Citas · reservas para peluquerías',
-  contexto: 'Proyecto personal · Full stack',
-  descripcion:
-    'Plataforma multi-peluquería de reservas en tiempo real: cada negocio crea su espacio con su propia marca, gestiona equipo, servicios y horarios, y sus clientes reservan sin dobles citas (índice único en MongoDB y Socket.IO). Sesiones revocables, enlaces de un solo uso, panel de estadísticas y más de 150 tests con CI en GitHub Actions.',
-  tags: [
-    'React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express',
-    'MongoDB', 'Socket.IO', 'JWT', 'Vitest', 'GitHub Actions',
-  ],
-  repo: 'https://github.com/JorgeJuradoG/peluqueria-citas',
-  demo: 'https://peluqueria-citas-hgeh.onrender.com/s/demo',
-  
-},
 ];
 
 export const FORMACION = [
