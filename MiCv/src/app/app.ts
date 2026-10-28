@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Background } from './background/background';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Navbar } from './navbar/navbar';
 import { Hero } from './hero/hero';
 import { About } from './about/about';
@@ -8,15 +7,15 @@ import { Experiencia } from './experiencia/experiencia';
 import { Proyectos } from './proyectos/proyectos';
 import { Formacion } from './formacion/formacion';
 import { Contacto } from './contacto/contacto';
+import { PERFIL } from './data/portfolio.data';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [Background, Navbar, Hero, About, Tecnologias, Experiencia, Proyectos, Formacion, Contacto],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [Navbar, Hero, About, Tecnologias, Experiencia, Proyectos, Formacion, Contacto],
   template: `
-    <app-background />
     <app-navbar />
-    <main class="mx-auto max-w-5xl px-5 pb-16">
+    <main>
       <app-hero />
       <app-about />
       <app-tecnologias />
@@ -25,7 +24,18 @@ import { Contacto } from './contacto/contacto';
       <app-formacion />
       <app-contacto />
     </main>
-    <footer class="text-center text-sm text-white/50 pb-8">© 2026 Jorge Jurado</footer>
+    <footer class="border-t border-chalk">
+      <div class="wrap py-10 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="text-[22px] font-semibold text-carbon">{{ p.nombre }}</p>
+          <p class="mt-1 text-caption text-pencil">{{ p.rol }} · {{ p.ciudad }}</p>
+        </div>
+        <p class="text-caption text-fog">© {{ anio }} {{ p.nombre }}</p>
+      </div>
+    </footer>
   `,
 })
-export class App {}
+export class App {
+  p = PERFIL;
+  anio = new Date().getFullYear();
+}

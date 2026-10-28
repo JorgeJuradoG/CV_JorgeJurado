@@ -1,7 +1,7 @@
 import { Directive, ElementRef, OnDestroy, afterNextRender, inject, input } from '@angular/core';
 
 // Uso: <div appReveal [revealDelay]="120">  → aparece suavemente al entrar en pantalla
-@Directive({ selector: '[appReveal]', standalone: true })
+@Directive({ selector: '[appReveal]' })
 export class Reveal implements OnDestroy {
   revealDelay = input(0);
   private el: HTMLElement = inject(ElementRef).nativeElement;

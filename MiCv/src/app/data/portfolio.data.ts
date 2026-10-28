@@ -3,16 +3,26 @@ export const PERFIL = {
   nombre: 'Jorge Jurado',
   rol: 'Desarrollador web junior',
   ciudad: 'Marbella',
-  // Ruta de una foto en public/ (por ejemplo '/foto.jpg'). Vacío = se muestran tus iniciales.
+  // PENDIENTE: ruta de una foto en public/ (por ejemplo '/foto.jpg'). Vacío = se muestran tus iniciales.
   foto: '',
   email: 'jorgejurado087@gmail.com',
   github: 'https://github.com/JorgeJuradoG',
+  // PENDIENTE: URL de tu perfil de LinkedIn. Vacío = no se muestra.
+  linkedin: '',
+  // PENDIENTE: ruta de tu CV en PDF dentro de public/ (por ejemplo '/cv-jorge-jurado.pdf'). Vacío = no se muestra el botón.
+  cvPdf: '',
   // Clave pública de Web3Forms
   formKey: 'ad00f1fd-ad26-4efd-b48a-ff38ce550c03',
   resumen:
     'Desarrollador Web Junior especializado en Angular, con formación en Desarrollo de Aplicaciones Web y experiencia participando en proyectos reales de desarrollo de software. Experiencia en la creación de aplicaciones utilizando Angular, JavaScript, Firebase y GitHub, trabajando bajo metodologías ágiles y control de versiones. Destaco por mi rápida capacidad de aprendizaje, trabajo en equipo y orientación a la resolución de problemas.',
   // Dato de la carta de recomendación, visible en el hero
   avalHero: '12 semanas de prácticas reales, valoradas muy positivamente por su coordinador',
+  // Cifras destacadas bajo el hero
+  cifras: [
+    { icono: 'calendar', numero: '12', texto: 'semanas de prácticas en un proyecto real' },
+    { icono: 'check', numero: '150+', texto: 'tests en mi proyecto Citas' },
+    { icono: 'languages', numero: 'B2', texto: 'de inglés (Cambridge)' },
+  ],
   datos: [
     { icono: 'map-pin', texto: 'Marbella, Málaga' },
     { icono: 'languages', texto: 'Castellano: nativo' },
@@ -105,15 +115,16 @@ export const PROYECTOS = [
     nombre: 'Proyecto Acogida de alumnos',
     contexto: 'Prácticas formativas · 12 semanas · ZAITEC SOLUTIONS',
     descripcion:
-      'Prototipo funcional de aplicación móvil desarrollado con Angular en un entorno de trabajo distribuido (marzo–junio 2025). Incluye gestión de usuarios con Firebase Authentication y almacenamiento con sincronización de datos mediante Firebase Realtime Database. El código se gestionó con Git y GitHub y se entregó de forma iterativa con enfoque ágil, coordinado por un DevOps y Scrum Master. Se trata de un gestor de alumnos para profesores donde se le hacía un seguimiento a estos alumnos y se podían hacer evaluaciones, todo conectado con una base de datos creada en Firebase, que se actualizaba en tiempo real.',
+      'Gestor de alumnos para profesores: seguimiento de cada alumno y evaluaciones, con datos sincronizados en tiempo real. Prototipo de aplicación móvil hecho con Angular, Firebase Authentication y Firebase Realtime Database, en un equipo distribuido con entregas iterativas (Scrum).',
     tags: ['Angular', 'JavaScript', 'Firebase Authentication', 'Firebase Realtime Database', 'Scrum', 'Bootstrap', 'Git', 'GitHub'],
     repo: '', demo: '',
   },
   {
     nombre: 'Mi CV',
-    contexto: 'Ejemplo de proyecto personal, donde desarrollo mi propio CV en formato web',
-    descripcion: 'Aquí puedes ver mi CV en formato web, desarrollado con Angular, TypeScript y Tailwind CSS.',
-    tags: ['Angular', 'TypeScript', 'Tailwind CSS'], repo: 'https://github.com/JorgeJuradoG', demo: '',
+    contexto: 'Proyecto personal · Esta misma web',
+    descripcion: 'Mi CV en formato web: Angular 20 con componentes standalone y signals, Tailwind CSS 4, prerenderizado estático y formulario de contacto. Publicado en Netlify.',
+    tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'Netlify'], repo: 'https://github.com/JorgeJuradoG/CV_JorgeJurado', demo: '',
+    imagen: '/img/micv.png',
   },
 ];
 
