@@ -1,51 +1,49 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Icon } from '../shared/icon';
 import { Reveal } from '../shared/reveal';
 import { TECNOLOGIAS } from '../data/portfolio.data';
 
 @Component({
   selector: 'app-tecnologias',
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [Icon, Reveal],
   template: `
-    <section id="tecnologias" class="py-20">
-      <h2 class="section-title">Tecnologías</h2>
+    <section id="tecnologias" class="band">
+      <div class="wrap">
+        <p class="eyebrow">Tecnologías</p>
+        <h2 class="section-title">Con qué trabajo</h2>
 
-      <div class="grid gap-5 sm:grid-cols-2">
-        @for (g of grupos; track g.titulo; let i = $index) {
-          <article appReveal [revealDelay]="(i % 2) * 120"
-                   class="glass flex flex-col rounded-2xl p-6 transition duration-300 hover:border-aqua/40"
-                   [class]="ocupaFila(i) ? 'sm:col-span-2' : ''">
-            <header class="mb-5 flex items-center gap-3">
-              <span class="grid size-10 shrink-0 place-items-center rounded-xl border border-white/15 bg-white/10 text-aqua">
-                <app-icon [name]="g.icono" [size]="20" />
-              </span>
-              <h3 class="font-display text-xl font-medium">{{ g.titulo }}</h3>
-              <span class="ml-auto rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-xs text-white/60">
-                {{ g.items.length }}
-              </span>
-            </header>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          @for (g of grupos; track g.titulo; let i = $index) {
+            <article appReveal [revealDelay]="(i % 2) * 100"
+                     class="flex flex-col rounded-tool p-6"
+                     [class]="lavados[i % lavados.length] + (ocupaFila(i) ? ' sm:col-span-2' : '')">
+              <header class="mb-5 flex items-center gap-3">
+                <span class="text-iris"><app-icon [name]="g.icono" [size]="28" /></span>
+                <h3 class="text-[22px] font-semibold text-ink">{{ g.titulo }}</h3>
+              </header>
 
-            <ul class="flex grow flex-wrap content-start gap-2" [attr.aria-label]="'Tecnologías de ' + g.titulo">
-              @for (t of g.items; track t) {
-                <li class="chip rounded-lg border border-white/15 bg-white/10 px-3.5 py-1.5 text-sm
-                           transition duration-200 hover:-translate-y-0.5 hover:border-aqua/60 hover:bg-white/15">{{ t }}</li>
+              <ul class="flex grow flex-wrap content-start gap-2" [attr.aria-label]="'Tecnologías de ' + g.titulo">
+                @for (t of g.items; track t) {
+                  <li class="tag">{{ t }}</li>
+                }
+              </ul>
+
+              @if (g.aval) {
+                <p class="mt-5 flex gap-2.5 text-[15px] text-pencil">
+                  <span class="mt-0.5 shrink-0 text-leaf"><app-icon name="circle-check" [size]="17" /></span>
+                  {{ g.aval }}
+                </p>
               }
-            </ul>
-
-            @if (g.aval) {
-              <p class="mt-5 flex gap-2.5 border-t border-white/15 pt-4 text-sm text-white/70">
-                <span class="mt-0.5 shrink-0 text-iris"><app-icon name="award" [size]="16" /></span>
-                {{ g.aval }}
-              </p>
-            }
-          </article>
-        }
+            </article>
+          }
+        </div>
       </div>
     </section>
   `,
 })
 export class Tecnologias {
   grupos = TECNOLOGIAS;
+  lavados = ['bg-lavender', 'bg-mint', 'bg-blush', 'bg-mist'];
   ocupaFila(i: number) { return i === this.grupos.length - 1 && this.grupos.length % 2 === 1; }
 }

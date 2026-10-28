@@ -1,76 +1,127 @@
 @import "tailwindcss";
 
-/* Paleta contenida: base azul noche, un acento (aqua) y dos tonos fríos de apoyo */
+/* Diseño "hoja de trabajo con bolígrafo azul": lienzo blanco, tinta casi negra,
+   un único acento azul y lavados muy suaves (lavanda, menta, melocotón) para separar bloques.
+   Sin sombras ni degradados: la profundidad la dan los fondos y los bordes de 1px. */
 @theme {
-  --font-display: "Sora", system-ui, sans-serif;
-  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
-  --color-violet: #4f56d9;
-  --color-iris: #8da2ff;
-  --color-aqua: #5eead4;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Neutros */
+  --color-ink: #1e2532;
+  --color-carbon: #0f141e;
+  --color-pencil: #656e83;
+  --color-fog: #828ba2;
+  --color-haze: #9fa6bb;
+  --color-paper: #ffffff;
+  --color-mist: #f7f9fc;
+  --color-chalk: #d9deeb;
+  --color-ash: #e7eaf4;
+
+  /* Acentos */
+  --color-signal: #1a91f0;
+  --color-deep-signal: #016fd0;
+  --color-iris: #5660e8;
+  --color-midnight: #1a1c6a;
+  --color-leaf: #1f8a5b; /* solo para el check verde y su insignia */
+
+  /* Lavados */
+  --color-lavender: #f1f2ff;
+  --color-mint: #e7f4ed;
+  --color-blush: #ffebe4;
+  --color-rose: #edd7df;
+
+  /* Escala tipográfica */
+  --text-caption: 14px;
+  --text-caption--line-height: 1.43;
+  --text-body: 16px;
+  --text-body--line-height: 1.25;
+  --text-sub: 19px;
+  --text-sub--line-height: 1.22;
+  --text-heading-sm: 24px;
+  --text-heading-sm--line-height: 1.17;
+  --text-heading: 31px;
+  --text-heading--line-height: 1.14;
+  --text-heading-lg: 40px;
+  --text-heading-lg--line-height: 1.07;
+  --text-display: 67px;
+  --text-display--line-height: 0.96;
+
+  /* Radios con nombre */
+  --radius-input: 4px;
+  --radius-tile: 12px;
+  --radius-card: 16px;
+  --radius-tool: 20px;
+  --radius-btn: 36px;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 body {
-  background: #070a16;
-  color: #e8ecf6;
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-feature-settings: "ss01" on, "cv11" on;
+  letter-spacing: 0.021em;
+  line-height: 1.43;
   -webkit-font-smoothing: antialiased;
 }
-:focus-visible { outline: 2px solid var(--color-aqua); outline-offset: 3px; }
-::selection { background: rgb(94 234 212 / .3); }
+h1, h2, h3 { color: var(--color-carbon); letter-spacing: 0; }
+:focus-visible { outline: 2px solid var(--color-signal); outline-offset: 3px; }
+::selection { background: rgb(26 145 240 / .18); }
 
-/* Rejilla tenue de fondo, más visible arriba y que se desvanece */
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background-image:
-    linear-gradient(rgb(255 255 255 / .035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / .035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 72%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 72%);
+/* Contenedor de página y bandas de sección (alternan blanco y Mist) */
+.wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+.band { padding-block: 80px; }
+.band-mist { background: var(--color-mist); }
+
+/* Micro-etiqueta en mayúsculas */
+.eyebrow {
+  font-size: 13px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.129em; color: var(--color-fog);
+}
+.section-title { font-size: var(--text-heading); line-height: 1.14; font-weight: 500; margin-top: .5rem; }
+@media (min-width: 640px) { .section-title { font-size: var(--text-heading-lg); line-height: 1.07; } }
+
+/* Botón principal (píldora azul) y botón fantasma (enlace de texto) */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--color-signal); color: #fff; font-weight: 500;
+  padding: 14px 24px; border-radius: var(--radius-btn);
+  transition: background-color .2s;
+}
+.btn-primary:hover { background: var(--color-deep-signal); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .375rem;
+  color: var(--color-signal); font-weight: 500; padding: 8px 4px;
+  text-underline-offset: 4px;
+}
+.btn-ghost:hover { text-decoration: underline; color: var(--color-deep-signal); }
+
+/* Etiqueta tipo píldora */
+.tag {
+  display: inline-flex; align-items: center;
+  border-radius: 100px; border: 1px solid var(--color-ash); background: var(--color-paper);
+  padding: 4px 12px; font-size: var(--text-caption); color: var(--color-ink);
 }
 
-/* Títulos de sección: tipografía uniforme y una línea fina que ordena la página */
-.section-title {
-  display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2rem;
-  font-family: var(--font-display); font-weight: 600; letter-spacing: -.02em;
-  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+/* Caja de icono con contorno */
+.icon-box {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 36px; height: 36px; border-radius: var(--radius-input);
+  border: 1px solid var(--color-chalk); background: var(--color-paper); color: var(--color-signal);
 }
-.section-title::after {
-  content: ''; flex: 1; height: 1px;
-  background: linear-gradient(90deg, rgb(255 255 255 / .22), transparent);
-}
-
-/* Cristal esmerilado, más sobrio */
-.glass {
-  background: linear-gradient(145deg, rgb(255 255 255 / .09), rgb(255 255 255 / .03));
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid rgb(255 255 255 / .11);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / .14), 0 24px 48px -28px rgb(0 0 0 / .7);
-}
-
-/* Orbes de color que se ven a través del cristal */
-.orb {
-  position: fixed; z-index: -1; border-radius: 9999px;
-  filter: blur(110px); opacity: .38;
-  animation: drift 26s ease-in-out infinite alternate;
-}
-@keyframes drift { to { transform: translate(7vw, 5vh) scale(1.12); } }
 
 /* Única animación de entrada: la presentación del hero */
-.rise { animation: rise .9s cubic-bezier(.2, .8, .2, 1) both; }
-@keyframes rise { from { opacity: 0; transform: translateY(20px); } }
+.rise { animation: rise .7s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 
 /* Aparición al hacer scroll (la activa la directiva appReveal) */
-.reveal-pending { opacity: 0; transform: translateY(14px); }
+.reveal-pending { opacity: 0; transform: translateY(12px); }
 .reveal-pending.reveal-in {
   opacity: 1; transform: none;
-  transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2, .8, .2, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orb, .rise { animation: none; }
+  .rise { animation: none; }
   html { scroll-behavior: auto; }
 }
