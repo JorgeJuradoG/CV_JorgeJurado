@@ -8,8 +8,8 @@ export const PERFIL = {
   email: 'jorgejurado087@gmail.com',
   github: 'https://github.com/JorgeJuradoG',
   linkedin: 'https://www.linkedin.com/in/jorge-jurado-g%C3%B3mez-108797199/',
-  // PENDIENTE: ruta de tu CV en PDF dentro de public/ (por ejemplo '/cv-jorge-jurado.pdf'). Vacío = no se muestra el botón.
-  cvPdf: '',
+  // CV en PDF dentro de public/. Vacío = no se muestra el botón de descarga.
+  cvPdf: '/cv-jorge-jurado.pdf',
   // Clave pública de Web3Forms
   formKey: 'ad00f1fd-ad26-4efd-b48a-ff38ce550c03',
   resumen:

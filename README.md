@@ -14,7 +14,7 @@ Mi CV en formato web ([cv-jorgejuradog.netlify.app](https://cv-jorgejuradog.netl
 
 ## Cómo editar el contenido
 
-Todo el texto del CV está en un único archivo: [`MiCv/src/app/data/portfolio.data.ts`](MiCv/src/app/data/portfolio.data.ts). Los campos marcados como `PENDIENTE` (foto y CV en PDF) se muestran solos en cuanto tienen valor.
+Todo el texto del CV está en un único archivo: [`MiCv/src/app/data/portfolio.data.ts`](MiCv/src/app/data/portfolio.data.ts). El campo marcado como `PENDIENTE` (la foto) se muestra solo en cuanto tiene valor.
 
 ## Desarrollo
 
