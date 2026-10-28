@@ -1,6 +1,6 @@
 # CV de Jorge Jurado
 
-Mi CV en formato web: quién soy, con qué tecnologías trabajo, mi experiencia, mis proyectos y un formulario de contacto.
+Mi CV en formato web ([cv-jorgejuradog.netlify.app](https://cv-jorgejuradog.netlify.app)): quién soy, con qué tecnologías trabajo, mi experiencia, mis proyectos y un formulario de contacto.
 
 ![Vista previa](MiCv/public/og.png)
 
@@ -14,7 +14,7 @@ Mi CV en formato web: quién soy, con qué tecnologías trabajo, mi experiencia,
 
 ## Cómo editar el contenido
 
-Todo el texto del CV está en un único archivo: [`MiCv/src/app/data/portfolio.data.ts`](MiCv/src/app/data/portfolio.data.ts). Los campos marcados como `PENDIENTE` (foto, LinkedIn, CV en PDF) se muestran solos en cuanto tienen valor.
+Todo el texto del CV está en un único archivo: [`MiCv/src/app/data/portfolio.data.ts`](MiCv/src/app/data/portfolio.data.ts). Los campos marcados como `PENDIENTE` (foto y CV en PDF) se muestran solos en cuanto tienen valor.
 
 ## Desarrollo
 
